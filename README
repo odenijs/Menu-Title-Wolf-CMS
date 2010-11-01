@@ -1,0 +1,31 @@
+Wolf CMS currently uses a single field for it's page title. Sometimes you want to show different titles in for example the site menu.
+This plugin creates an extra database field named "menu_title" and adds an extra tab to Wolf CMS.
+
+Simple example of how to use this field:
+
+<ul class="menu">	
+<?php 
+		$topSlug = explode('/', $_SERVER['REQUEST_URI']); 
+		$areaSlug = $topSlug[1];
+				
+		if (strlen($areaSlug) != 2) { 
+			$cMenu = $this->find('/');  
+		} else {
+			$cMenu = $this->find('/'.$areaSlug);
+		}
+		
+		if (strlen($areaSlug) != 2) { 
+			echo '<li><a href="'.BASE_URL.'">'.menutitle($cMenu->id()).'</a></li>';			  
+		} else {
+			echo '<li><a href="'.BASE_URL.$areaSlug.'/">'.menutitle($cMenu->id()).'</a></li>';	
+		}
+	?>
+
+	<?php foreach ($cMenu->children() as $cMenuItems): ?>
+		<li>
+			<a href="<?php echo $cMenuItems->url(); ?>" title="<?php echo menutitle($cMenuItems->id()); ?>"><?php echo menutitle($cMenuItems->id());?></a>
+		</li>		 
+	<?php endforeach; ?>	
+</ul>
+
+

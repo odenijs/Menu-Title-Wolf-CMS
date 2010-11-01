@@ -1,40 +1,13 @@
 <?php
 /**
- * Wolf CMS - Content Management Simplified. <http://www.wolfcms.org>
- * Copyright (C) 2008 Philippe Archambault <philippe.archambault@gmail.com>
- * Copyright (C) 2008,2009 Martijn van der Kleijn <martijn.niji@gmail.com>
+ * Menu title Plugin for Wolf CMS
+ * 
+ * Once created it for a project using Frog CMS, converted it for Wolf CMS
  *
- * This file is part of Wolf CMS.
- *
- * Wolf CMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Wolf CMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Wolf CMS.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Wolf CMS has made an exception to the GNU General Public License for plugins.
- * See exception.txt for details and the full text.
- */
-
-/**
- * The Comment plugin provides an interface to enable adding and moderating page comments.
- *
- * @package wolf
- * @subpackage plugin.comment
- *
- * @author Okke de Nijs <odenijs@gmail.com>
- * @version 0.1
- * @since Wolf version 0.6.0
- * @license http://www.gnu.org/licenses/gpl.html GPLv3 License
- * @copyright Philippe Archambault & Martijn van der Kleijn, 2008
- */
+ * Copyright (C) 2010 Okke de Nijs <odenijs@gmail.com>
+ * 
+ * Licensed under the GPL (gpl-license.txt) licenses.
+**/
 
 $PDO = Record::getConnection();
 $driver = strtolower($PDO->getAttribute(Record::ATTR_DRIVER_NAME));
@@ -46,7 +19,7 @@ if ($driver == 'mysql')
 }
 else if ($driver == 'sqlite')
 {
-	//someday will add this option
+	//someday will add this option if needed
 	//$PDO->exec("CREATE INDEX comment_page_id ON comment (page_id)");
 	//$PDO->exec("CREATE INDEX comment_created_on ON comment (created_on)");
     

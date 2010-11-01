@@ -1,54 +1,25 @@
 <?php
 /**
- * Wolf CMS - Content Management Simplified. <http://www.wolfcms.org>
- * Copyright (C) 2008 Philippe Archambault <philippe.archambault@gmail.com>
- * Copyright (C) 2008,2009 Martijn van der Kleijn <martijn.niji@gmail.com>
+ * Menu title Plugin for Wolf CMS
+ * 
+ * Once created it for a project using Frog CMS, converted it for Wolf CMS
  *
- * This file is part of Wolf CMS.
- *
- * Wolf CMS is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * Wolf CMS is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with Wolf CMS.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Wolf CMS has made an exception to the GNU General Public License for plugins.
- * See exception.txt for details and the full text.
- */
-
-/**
- * The Comment plugin provides an interface to enable adding and moderating page comments.
- *
- * @package wolf
- * @subpackage plugin.comment
- *
- * @author Okke de Nijs <odenijs@gmail.com>
- * @version 0.1
- * @since Wolf version 0.6.0
- * @license http://www.gnu.org/licenses/gpl.html GPLv3 License
- * @copyright Philippe Archambault & Martijn van der Kleijn, 2008
- */
+ * Copyright (C) 2010 Okke de Nijs <odenijs@gmail.com>
+ * 
+ * Licensed under the GPL (gpl-license.txt) licenses.
+**/
 
 Plugin::setInfos(array(
-				'id' 					=> 'menu_title',
-				'title' 			=> __('Menu Title'),
-				'description' => __('Adds an extra field for storing a menu title.'),
-				'license'			=> 'GPL',
+				'id' 			=> 'menu_title',
+				'title' 		=> __('Menu Title'),
+				'description'	=> __('Adds an extra field for storing a menu title.'),
+				'license'		=> 'GPL',
 				'version' 		=> '0.1',
-				'website' 		=> ''
+				'website' 		=> 'http://okkedenijs.nl',
+				'url'			=> 'http://github.com/odenijs/Menu-Title-Wolf-CMS'
 ));
 
 // Add the plugin's tab and controller
-//Plugin::addController('menu_title', __('Menu_Title'));
-//Plugin::addController('menu_title', __('Menu_Title'), 'administrator', true);
-
 Observer::observe('view_page_edit_tabs', 'page_edit');
 
 function page_edit(&$page) {
@@ -92,7 +63,7 @@ function menutitle($id)
 	$menutitle = $obj->menu_title;
 	$pagetitle = $obj->title;
 	
-	if (empty($menutitle))  {
+	if (empty($menutitle)) {
 	 	return $pagetitle;
 	 } else {
 	 	return $menutitle;
