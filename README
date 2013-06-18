@@ -3,7 +3,7 @@ This plugin creates an extra database field named "menu_title" and adds an extra
 
 Simple example of how to use this field:
 
-<ul class="menu">	
+```<ul class="menu">	
 <?php 
 		$cMenu = $this->find('/');  	
 		echo '<li><a href="'.BASE_URL.$areaSlug.'/">'.menutitle($cMenu->id()).'</a></li>';	
@@ -14,6 +14,6 @@ Simple example of how to use this field:
 			<a href="<?php echo $cMenuItems->url(); ?>" title="<?php echo menutitle($cMenuItems->id()); ?>"><?php echo menutitle($cMenuItems->id());?></a>
 		</li>		 
 	<?php endforeach; ?>	
-</ul>
+</ul>```
 
 
